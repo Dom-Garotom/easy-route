@@ -1,50 +1,56 @@
-# Welcome to your Expo app 👋
+# RotaFácil - Sistema de Controle de Vagas para Ônibus Estudantis
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Descrição do Projeto
 
-## Get started
+O **RotaFácil** é um sistema desenvolvido para otimizar a gestão de transporte escolar, permitindo o cadastro e controle de alunos que utilizarão o serviço diariamente. O sistema fornece insights sobre a ocupação dos ônibus, recorrência dos alunos e o melhor veículo a ser utilizado com base na demanda.
 
-1. Install dependencies
+Além disso, conta com notificações automatizadas via e-mail e WhatsApp, alertando sobre confirmação de presença, disponibilidade de ônibus, problemas operacionais e outras informações essenciais.
 
-   ```bash
-   npm install
-   ```
+## Funcionalidades Principais
 
-2. Start the app
+### **1. Gestão Diária de Presenças**
+- **Check-in e confirmação de presença** pelos alunos ou responsáveis.
+- **Listas dinâmicas de passageiros** atualizadas em tempo real.
+- **Registro automático de ausências** caso o check-in não seja realizado.
 
-   ```bash
-    npx expo start
-   ```
+### **2. Cadastro e Gerenciamento de Entidades**
+- **Instituições**: Cadastro, edição e exclusão.
+- **Rotas**: Criação, edição e visualização com mapeamento geográfico.
+- **Ônibus**: Cadastro com capacidade, tamanho e status de manutenção.
+- **Motoristas**: Cadastro com dados pessoais e vinculação a ônibus.
+- **Alunos**: Cadastro com vinculação a instituição e histórico de participação.
 
-In the output, you'll find options to open the app in a
+### **3. Notificações e Alertas**
+- **Envio automático** de mensagens via e-mail e WhatsApp.
+- **Alertas operacionais** sobre confirmação de presença, disponibilidade de assentos e problemas de transporte.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### **4. Rastreamento e Ocupação dos Ônibus**
+- **Indicador de ocupação** para otimização da frota.
+- **Sugestão de ajuste de ônibus** conforme demanda.
+- **Histórico de ocupação** para análise de uso e previsão de demanda.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### **5. Relatórios e Declarações**
+- **Geração automática** de declarações de uso do transporte.
+- **Histórico de presença** acessível para gestão e pais.
 
-## Get a fresh project
 
-When you're ready, run:
+## Roadmap do Projeto
 
-```bash
-npm run reset-project
-```
+- [x] Definição de requisitos e escopo.
+- [ ] Implementação inicial do back-end.
+- [ ] Implementação da interface do usuário.
+- [ ] Integração entre front-end e back-end.
+- [ ] Testes e depuração.
+- [ ] Lançamento da primeira versão.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contribuição
 
-## Learn more
+Caso queira contribuir com o projeto:
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature (`git checkout -b minha-feature`).
+3. Faça commit das suas alterações (`git commit -m 'Adiciona nova funcionalidade'`).
+4. Envie um push para a branch (`git push origin minha-feature`).
+5. Abra um Pull Request.
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Desenvolvido com ❤️ pela equipe do RotaFácil.
