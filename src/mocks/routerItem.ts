@@ -1,0 +1,247 @@
+import { RouteInfo } from "@/types/routerInfo";
+
+const ApiRoutesMocks : RouteInfo[] = [
+  {
+    id: "route-001",
+    name: "Rota Centro",
+    description: "Transporte dos alunos do bairro central até a escola.",
+    going: "07:00:00",
+    back: "12:30:00",
+    duration: 150,
+    duration_measurement: "minutes",
+    confirmedStudants: 35,
+    bus: {
+      driver: "Carlos Mendes",
+      model: "Volare W9",
+      plate: "DEF-4567",
+      capacityStudents: 40,
+    },
+    startRoute: {
+      latitude: "40.7306",
+      longititude: "-73.9352",
+    },
+    endRoute: {
+      latitude: "40.7128",
+      longititude: "-74.0060",
+    },
+  },
+  {
+    id: "route-002",
+    name: "Rota Sul",
+    description: "Alunos da zona sul indo para a escola.",
+    going: "06:45:00",
+    back: "12:15:00",
+    duration: 180,
+    duration_measurement: "minutes",
+    confirmedStudants: 28,
+    bus: {
+      driver: "Mariana Souza",
+      model: "Mercedes-Benz Sprinter",
+      plate: "GHI-7890",
+      capacityStudents: 35,
+    },
+    startRoute: {
+      latitude: "-23.5505",
+      longititude: "-46.6333",
+    },
+    endRoute: {
+      latitude: "-23.5631",
+      longititude: "-46.6543",
+    },
+  },
+  {
+    id: "route-003",
+    name: "Rota Norte",
+    description: "Trajeto da região norte até a escola.",
+    going: "07:15:00",
+    back: "12:45:00",
+    duration: 165,
+    duration_measurement: "minutes",
+    confirmedStudants: 30,
+    bus: {
+      driver: "José Lima",
+      model: "Volkswagen 9.160",
+      plate: "JKL-3210",
+      capacityStudents: 45,
+    },
+    startRoute: {
+      latitude: "-22.9083",
+      longititude: "-43.1964",
+    },
+    endRoute: {
+      latitude: "-22.9035",
+      longititude: "-43.2096",
+    },
+  },
+  {
+    id: "route-004",
+    name: "Rota Leste",
+    description: "Alunos do lado leste indo para o colégio.",
+    going: "06:30:00",
+    back: "13:00:00",
+    duration: 200,
+    duration_measurement: "minutes",
+    confirmedStudants: 40,
+    bus: {
+      driver: "Ana Pereira",
+      model: "Iveco Daily",
+      plate: "MNO-6543",
+      capacityStudents: 38,
+    },
+    startRoute: {
+      latitude: "-15.7801",
+      longititude: "-47.9292",
+    },
+    endRoute: {
+      latitude: "-15.7941",
+      longititude: "-47.8825",
+    },
+  },
+  {
+    id: "route-005",
+    name: "Rota Oeste",
+    description: "Transporte para os alunos da região oeste.",
+    going: "07:20:00",
+    back: "12:50:00",
+    duration: 160,
+    duration_measurement: "minutes",
+    confirmedStudants: 25,
+    bus: {
+      driver: "Rafael Dias",
+      model: "Volvo B270F",
+      plate: "PQR-9876",
+      capacityStudents: 50,
+    },
+    startRoute: {
+      latitude: "-30.0346",
+      longititude: "-51.2177",
+    },
+    endRoute: {
+      latitude: "-30.0370",
+      longititude: "-51.2265",
+    },
+  },
+  {
+    id: "route-006",
+    name: "Rota Rural",
+    description: "Rota para alunos da área rural.",
+    going: "06:15:00",
+    back: "13:30:00",
+    duration: 225,
+    duration_measurement: "minutes",
+    confirmedStudants: 22,
+    bus: {
+      driver: "Juliana Cardoso",
+      model: "Agrale Marruá",
+      plate: "STU-5432",
+      capacityStudents: 20,
+    },
+    startRoute: {
+      latitude: "-19.9245",
+      longititude: "-43.9352",
+    },
+    endRoute: {
+      latitude: "-19.9151",
+      longititude: "-43.9030",
+    },
+  },
+  {
+    id: "route-007",
+    name: "Rota Montanha",
+    description: "Transporte de estudantes de áreas montanhosas.",
+    going: "06:50:00",
+    back: "13:20:00",
+    duration: 190,
+    duration_measurement: "minutes",
+    confirmedStudants: 18,
+    bus: {
+      driver: "Fernando Alves",
+      model: "Volkswagen 17.230",
+      plate: "VWX-6789",
+      capacityStudents: 30,
+    },
+    startRoute: {
+      latitude: "-12.9714",
+      longititude: "-38.5014",
+    },
+    endRoute: {
+      latitude: "-12.9600",
+      longititude: "-38.4825",
+    },
+  },
+  {
+    id: "route-008",
+    name: "Rota Expressa",
+    description: "Rota especial com poucos pontos de parada.",
+    going: "07:10:00",
+    back: "12:40:00",
+    duration: 170,
+    duration_measurement: "minutes",
+    confirmedStudants: 50,
+    bus: {
+      driver: "Patrícia Nunes",
+      model: "Marcopolo Torino",
+      plate: "YZA-1235",
+      capacityStudents: 55,
+    },
+    startRoute: {
+      latitude: "-8.0476",
+      longititude: "-34.8770",
+    },
+    endRoute: {
+      latitude: "-8.0552",
+      longititude: "-34.9023",
+    },
+  },
+  {
+    id: "route-009",
+    name: "Rota Universitária",
+    description: "Rota para alunos universitários em horários específicos.",
+    going: "08:00:00",
+    back: "17:00:00",
+    duration: 540,
+    duration_measurement: "minutes",
+    confirmedStudants: 60,
+    bus: {
+      driver: "Eduardo Martins",
+      model: "Mercedes-Benz OF-1721",
+      plate: "BCD-5678",
+      capacityStudents: 65,
+    },
+    startRoute: {
+      latitude: "-3.7172",
+      longititude: "-38.5433",
+    },
+    endRoute: {
+      latitude: "-3.7301",
+      longititude: "-38.5912",
+    },
+  },
+  {
+    id: "route-010",
+    name: "Rota Noturna",
+    description: "Rota especial para estudantes do período noturno.",
+    going: "18:30:00",
+    back: "22:30:00",
+    duration: 240,
+    duration_measurement: "minutes",
+    confirmedStudants: 20,
+    bus: {
+      driver: "Luciano Ferreira",
+      model: "Scania K310",
+      plate: "EFG-1357",
+      capacityStudents: 30,
+    },
+    startRoute: {
+      latitude: "-25.4284",
+      longititude: "-49.2733",
+    },
+    endRoute: {
+      latitude: "-25.4400",
+      longititude: "-49.2950",
+    },
+  }
+];
+
+
+export default ApiRoutesMocks;
