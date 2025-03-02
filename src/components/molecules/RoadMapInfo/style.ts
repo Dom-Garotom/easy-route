@@ -5,21 +5,15 @@ import { StyleSheet } from "react-native";
 
 export const s = StyleSheet.create({
     roadMapInfo_container: {
+        position:"absolute",
+        bottom: 20,
+        left:10,
+        right: 10,
         backgroundColor: colors.white,
-        width: "100%",
         gap: 16,
         padding: 24,
         paddingBottom: 28,
         borderRadius: 16,
-
-        // // Sombra suave no iOS
-        // shadowColor: "#000",
-        // shadowOffset: { width: 0, height: 4 },
-        // shadowOpacity: 0.1, // Opacidade baixa para suavizar
-        // shadowRadius: 10, // Raio maior para difundir a sombra
-
-        // // Sombra suave no Android
-        // elevation: 100,
     },
 
     roadMapInfo_Title: {

@@ -1,6 +1,6 @@
 import { UserBadge } from '@/components/atoms/UserBadge'
 import colors from '@/styles/colors'
-import { IconTimeDuration0 } from '@tabler/icons-react-native'
+import { IconClock } from '@tabler/icons-react-native'
 import React from 'react'
 import { Text, View } from 'react-native'
 import { s } from './style'
@@ -21,12 +21,12 @@ export default function RoadMapInfo({ back, going, studentsNumber, title }: Road
             </View>
 
             <View style={s.roadMapInfo_timer}>
-                <IconTimeDuration0 color={colors.green} />
+                <IconClock color={colors.green} />
                 <Text style={s.roadMapInfo_text}>Saída : {going}</Text>
             </View>
 
             <View style={s.roadMapInfo_timer}>
-                <IconTimeDuration0 color={colors.green} />
+                <IconClock color={colors.green} />
                 <Text style={s.roadMapInfo_text}>Volta : {back}</Text>
             </View>
         </View>

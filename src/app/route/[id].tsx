@@ -23,7 +23,7 @@ export default function RouteDatails() {
                             <IconArrowLeft color={colors.white} />
                         </Button>
                         <Text style={{ color: colors.white, fontSize: 25, fontWeight: '600' }}>{currentRoute?.name}</Text>
-                        <Button style={s.button} onPress={() => router.back()}>
+                        <Button style={s.button} onPress={() => router.push( `/mapRoute/${id}` as `/mapRoute/[id]` )}>
                             <IconMapPin color={colors.white} />
                         </Button>
                     </View>

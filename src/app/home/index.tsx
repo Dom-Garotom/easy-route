@@ -1,4 +1,5 @@
 import RouterItem from '@/components/atoms/RouterItem'
+import MapScren from '@/components/organism/MapScreen'
 import ApiRoutesMocks from '@/mocks/routerItem'
 import colors from '@/styles/colors'
 import React from 'react'
@@ -8,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 export default function Home() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: "#ff0000" }}></View>
+      <MapScren/>
       <View style={s.listOfRoute_container}>
         <FlatList
           data={ApiRoutesMocks}
@@ -37,7 +38,9 @@ export default function Home() {
 
 const s = StyleSheet.create({
   listOfRoute_container: {
-    height: "50%",
+    position: 'absolute',
+    bottom:0,
+    height: "40%",
     padding: 24,
     paddingBottom: 0,
     gap: 10,
