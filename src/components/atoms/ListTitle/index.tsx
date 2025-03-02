@@ -8,7 +8,7 @@ interface ListTitleProps {
     studentsNumber : number
 }
 
-export default function ListTitle( { studentsNumber , title} : ListTitleProps) {
+export default function ListTitle( { studentsNumber = 0 , title} : ListTitleProps) {
     return (
         <View style={s.listTitle_container}>
             <Text style={s.listTitle_text}>{title}</Text>
@@ -24,6 +24,7 @@ const s = StyleSheet.create({
         flexDirection: 'row',
         paddingVertical: 10,
         justifyContent: 'space-between',
+        alignItems:'center',
     },
 
     listTitle_text: {

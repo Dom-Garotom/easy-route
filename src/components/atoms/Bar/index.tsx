@@ -11,7 +11,7 @@ const s = StyleSheet.create({
     bar_container: {
         width: "100%",
         height: 1,
-        backgroundColor: colors.gray,
+        backgroundColor: "#E1EBF4",
         marginVertical: 14
     }
 })
