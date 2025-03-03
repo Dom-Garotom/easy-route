@@ -12,12 +12,14 @@ export const s = StyleSheet.create({
     notificationItem_title: {
         color: colors.title,
         fontWeight: '600',
-        fontSize: 12,
+        fontSize: 14,
     },
     notificationItem_text: {
-        color: colors.title,
+        width: "80%",
+        color: colors.text,
         fontWeight: '500',
         fontSize: 12,
+        flexWrap:"wrap",
     },
     notificationItem_textSoft: {
         color: colors.text,
