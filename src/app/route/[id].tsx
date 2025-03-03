@@ -8,24 +8,32 @@ import { router, useLocalSearchParams } from 'expo-router'
 import { ImageBackground, SafeAreaView, ScrollView, Text, View } from 'react-native'
 import { s } from './style'
 import ApiRoutesMocks from '@/mocks/routerItem'
+import ShortButton from '@/components/atoms/ShortButton/indext'
 export default function RouteDatails() {
     const { id } = useLocalSearchParams()
-    const currentRoute = ApiRoutesMocks.find( item => item.id === id);
+    const currentRoute = ApiRoutesMocks.find(item => item.id === id);
 
-    
+
 
     return (
         <SafeAreaView style={s.main}>
             <ImageBackground source={{ uri: "https://portal.ifrn.edu.br/media/images/51467_Campus_Pau_dos_Ferros_nao_tera_expedient.width-500.jpg" }} style={s.header_container}>
                 <View style={s.shadow}>
                     <View style={s.header_content}>
-                        <Button style={s.button} onPress={() => router.back()}>
+                        <ShortButton path={`/home`}
+                            left={20}
+                            top={20}
+                        >
                             <IconArrowLeft color={colors.white} />
-                        </Button>
-                        <Text style={{ color: colors.white, fontSize: 25, fontWeight: '600' }}>{currentRoute?.name}</Text>
-                        <Button style={s.button} onPress={() => router.push( `/mapRoute/${id}` as `/mapRoute/[id]` )}>
+                        </ShortButton>
+                        <Text style={{fontSize:20 , color:colors.white , fontWeight:'700'}}>{currentRoute?.name}</Text>
+                        <ShortButton
+                            path={`/mapRoute/${id}`}
+                            right={20}
+                            top={20}
+                        >
                             <IconMapPin color={colors.white} />
-                        </Button>
+                        </ShortButton>
                     </View>
                 </View>
             </ImageBackground>
@@ -53,7 +61,7 @@ export default function RouteDatails() {
 
                 </ScrollView>
             </View>
-            <View style={{padding: 30 , backgroundColor: colors.white}}>
+            <View style={{ padding: 30, backgroundColor: colors.white }}>
                 <Button text='Me inscrever' />
             </View>
         </SafeAreaView>

@@ -1,10 +1,9 @@
-import Button from '@/components/atoms/Button'
 import RouterItem from '@/components/atoms/RouterItem'
+import ShortButton from '@/components/atoms/ShortButton/indext'
 import MapScren from '@/components/organism/MapScreen'
 import ApiRoutesMocks from '@/mocks/routerItem'
 import colors from '@/styles/colors'
 import { IconArrowLeft, IconNotification } from '@tabler/icons-react-native'
-import { router } from 'expo-router'
 import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -34,9 +33,21 @@ export default function Home() {
           showsVerticalScrollIndicator={false}
         />
       </View>
-      <Button style={s.button} onPress={() => router.push('/notification/' as '/notification/index')}>
+      <ShortButton 
+        path={'/notification'}
+        left={20}
+        top={20}
+        >
         <IconNotification color={colors.white} />
-      </Button>
+      </ShortButton>
+
+      <ShortButton 
+        path={'/notification'}
+        right={20}
+        top={20}
+        >
+        <IconNotification color={colors.white} />
+      </ShortButton>
     </SafeAreaView>
   )
 }
@@ -58,15 +69,5 @@ const s = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
   },
-  button: {
-    position: "absolute",
-    top: 10,
-    left: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 45,
-    width: 45,
-    backgroundColor: colors.green,
-    borderRadius: 10,
-  },
+
 })

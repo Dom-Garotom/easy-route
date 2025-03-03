@@ -24,18 +24,9 @@ export const s = StyleSheet.create({
     header_content: {
         width: "100%",
         padding: 20,
-        paddingTop: 12,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    button: {
+        paddingTop: 25,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 45,
-        width: 45,
-        backgroundColor: colors.green,
-        borderRadius: 10,
     },
 
 

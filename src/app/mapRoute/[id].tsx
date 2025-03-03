@@ -24,7 +24,6 @@ export default function MapRoute() {
           longitudeDelta: 0.005, // Maior zoom
         }}
       >
-        {/* Exemplo de marcador */}
         <Marker
           coordinate={{
             latitude: -6.145875,
