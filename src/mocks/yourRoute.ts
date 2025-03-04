@@ -3,7 +3,7 @@ interface YourRouteProps {
     title: string
     going ?: string
     back ?: string
-  }
+}
 
 export const ApiYourRoutes: YourRouteProps[] = [
     {

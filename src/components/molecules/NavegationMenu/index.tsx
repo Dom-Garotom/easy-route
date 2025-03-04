@@ -42,7 +42,7 @@ export default function NavigationMenu() {
                     </ShortButton>
 
                     <ShortButton
-                        path={'/notification'}
+                        path={'/person/' as '/person/index'}
                         top={130}
                         left={10}
                         onClick={handleClickOptions}
