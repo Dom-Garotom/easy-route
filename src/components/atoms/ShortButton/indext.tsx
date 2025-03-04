@@ -1,20 +1,25 @@
 import React, { ReactNode } from 'react'
 import Button from '../Button'
-import { StyleSheet, TouchableOpacityProps } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { Href, router } from 'expo-router'
 import colors from '@/styles/colors'
 
-interface ShortButtonProps extends TouchableOpacityProps {
+interface ShortButtonProps {
     text?: string,
-    path: Href
+    path?: Href
     children?: ReactNode,
     top?: number
     left?: number
     right?: number
     bottom?: number
+    onClick?: () => void
 }
 
-export default function ShortButton({ path, children, bottom, left, right, top, ...rest }: ShortButtonProps) {
+export default function ShortButton({ path, children, bottom, left, right, top, onClick }: ShortButtonProps) {
+    const handleClick = () => {
+        path && router.push(path);
+        onClick?.()
+    }
     return (
         <Button
             style={[
@@ -26,8 +31,7 @@ export default function ShortButton({ path, children, bottom, left, right, top, 
                     bottom: bottom
                 }
             ]}
-            onPress={() => router.push(path)}
-            {...rest}
+            onPress={handleClick}
         >
             {children}
         </Button>
@@ -36,14 +40,17 @@ export default function ShortButton({ path, children, bottom, left, right, top, 
 
 const s = StyleSheet.create({
     button: {
+        minWidth: 45,
+        height: 45,
         position: "absolute",
-        top: 10,
-        left: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 45,
-        width: 45,
-        backgroundColor: colors.green,
+        flexDirection: 'row',
+        top: 10,
+        left: 10,
+        gap: 10,
+        padding: 12,
         borderRadius: 10,
+        backgroundColor: colors.green,
     },
 })
