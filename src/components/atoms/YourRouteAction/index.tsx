@@ -4,6 +4,7 @@ import colors from '@/styles/colors'
 import { s } from './style'
 
 interface YourRouteActionProps {
+    route_id : string
     title: string
     time: string
     hasGoing: boolean

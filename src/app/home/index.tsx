@@ -2,7 +2,9 @@ import RouterItem from '@/components/atoms/RouterItem'
 import ShortButton from '@/components/atoms/ShortButton/indext'
 import ListCategory from '@/components/molecules/ListCategory'
 import NavigationMenu from '@/components/molecules/NavegationMenu'
+import DailyRoutes from '@/components/organism/DailyRoutes'
 import MapScren from '@/components/organism/MapScreen'
+import MyRoutes from '@/components/organism/MyRoutes'
 import ApiRoutesMocks from '@/mocks/routerItem'
 import colors from '@/styles/colors'
 import { IconNotification } from '@tabler/icons-react-native'
@@ -11,7 +13,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function Home() {
-  const [categories , setCategories] = useState('')
+  const [categories , setCategories] = useState('Rotas de hoje')
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <MapScren />
@@ -32,31 +34,12 @@ export default function Home() {
 
         <View style={s.flatList_container}>
           <View style={s.bar} />
-          <FlatList
-            data={ApiRoutesMocks}
-            keyExtractor={({ id }) => id}
-            ListHeaderComponent={() =>
-              <Text style={s.listOfRoute_description}>Visite  as rotas para Pau dos Ferros de hoje</Text>
-            }
-            renderItem={({ item }) =>
-              <RouterItem
-                id={item.id}
-                title={item.name}
-                description={item.description}
-                period={item.going}
-                measurement={item.duration_measurement}
-                time={item.duration}
-              />
-            }
-            contentContainerStyle={{ paddingBottom: 36, gap: 10 }}
-            style={s.flatList}
-            showsVerticalScrollIndicator={false}
-          />
-
-          {/* transforma em componente e renderiza a depender do button */}
-
-
-
+          {categories === 'Rotas de hoje' &&
+            <DailyRoutes/>
+          }
+          {categories === 'Minhas rotas' &&
+            <MyRoutes/>
+          }
         </View>
       </View>
     </SafeAreaView>
@@ -68,14 +51,9 @@ const s = StyleSheet.create({
   listOfRoute_container: {
     position: 'absolute',
     height: "45%",
+    width: "100%",
     paddingBottom: 0,
     bottom: 0,
-  },
-
-  listOfRoute_description: {
-    color: colors.text,
-    fontWeight: '500',
-    fontSize: 16,
   },
 
   flatList_container: { 
@@ -83,14 +61,7 @@ const s = StyleSheet.create({
     borderRadius: 18, 
     backgroundColor: colors.white, 
     alignItems: 'center', 
-    gap: 18, 
-  },
-
-  flatList: {
-    padding: 24,
-    paddingBottom: 0,
-    borderRadius: 16,
-    backgroundColor: colors.white,
+    gap: 8, 
   },
 
   bar: { width: "30%", height: 4, backgroundColor: colors.gray },
