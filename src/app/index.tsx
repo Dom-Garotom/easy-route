@@ -15,6 +15,16 @@ export default function index() {
       <Text>DRIVER</Text>
         <Button text='Click' onPress={() => router.navigate("/driver" as '/driver/index')}/>
     </View>
+
+    <View style={{flex:1, padding: 20 , justifyContent:'center' , alignItems: 'center'}}>
+      <Text>Login</Text>
+        <Button text='Click' onPress={() => router.navigate("/(auth)/signIn")}/>
+    </View>
+
+    <View style={{flex:1, padding: 20 , justifyContent:'center' , alignItems: 'center'}}>
+      <Text>Register</Text>
+        <Button text='Click' onPress={() => router.navigate('/(auth)/signUp')}/>
+    </View>
     
     
     </>
