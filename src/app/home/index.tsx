@@ -1,15 +1,13 @@
-import RouterItem from '@/components/atoms/RouterItem'
 import ShortButton from '@/components/atoms/ShortButton/indext'
 import ListCategory from '@/components/molecules/ListCategory'
 import NavigationMenu from '@/components/molecules/NavegationMenu'
 import DailyRoutes from '@/components/organism/DailyRoutes'
 import MapScren from '@/components/organism/MapScreen'
 import MyRoutes from '@/components/organism/MyRoutes'
-import ApiRoutesMocks from '@/mocks/routerItem'
 import colors from '@/styles/colors'
 import { IconNotification } from '@tabler/icons-react-native'
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function Home() {
@@ -19,7 +17,7 @@ export default function Home() {
       <MapScren />
       <NavigationMenu />
       <ShortButton
-        path={'/notification'}
+        path={'/person/index'}
         top={20}
         right={10}
       >
