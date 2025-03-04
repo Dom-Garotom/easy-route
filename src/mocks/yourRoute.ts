@@ -1,8 +1,8 @@
 interface YourRouteProps {
     route_id: string 
     title: string
-    going : string
-    back : string
+    going ?: string
+    back ?: string
   }
 
 export const ApiYourRoutes: YourRouteProps[] = [
@@ -10,7 +10,6 @@ export const ApiYourRoutes: YourRouteProps[] = [
         route_id: "1",
         title: "Rota Matutina",
         going: "06:30:00",
-        back: "12:00:00",
     },
     {
         route_id: "2",
@@ -27,7 +26,6 @@ export const ApiYourRoutes: YourRouteProps[] = [
     {
         route_id: "4",
         title: "Rota Escolar A",
-        going: "07:00:00",
         back: "11:45:00",
     },
     {
@@ -39,7 +37,6 @@ export const ApiYourRoutes: YourRouteProps[] = [
     {
         route_id: "6",
         title: "Rota Universitária",
-        going: "18:00:00",
         back: "22:15:00",
     },
     {
@@ -58,7 +55,6 @@ export const ApiYourRoutes: YourRouteProps[] = [
         route_id: "9",
         title: "Rota Comercial",
         going: "14:00:00",
-        back: "20:00:00",
     },
     {
         route_id: "10",

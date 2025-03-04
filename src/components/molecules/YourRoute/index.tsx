@@ -6,8 +6,8 @@ interface YourRouteProps {
   route_id: string 
   title: string
   period: string
-  going : string
-  back : string
+  going ?: string
+  back ?: string
 }
 
 export default function YourRoute({ going , back , route_id , period, title }: YourRouteProps) {

@@ -17,7 +17,7 @@ export default function MyRoutes() {
         <YourRoute
           title={item.title}
           route_id={item.route_id}
-          period={getPeriod(item.going)}
+          period={ item.going ? getPeriod(item.going) : getPeriod(item.back!)}
           going={item.going}
           back={item.back}
         />
