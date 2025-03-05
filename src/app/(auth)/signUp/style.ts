@@ -4,14 +4,13 @@ export const styles = StyleSheet.create({
     page: {
       flex: 1,
       padding: 20,
-      gap: 35,
+      gap: 28,
     },
   
     image: {
       width: 80,
       height: 80,
       borderRadius: 16,
-      // boxShadow: colors.shadow,
     },
   
     title: {

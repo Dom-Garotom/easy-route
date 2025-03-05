@@ -10,16 +10,16 @@ export default function SignIn() {
     <ScrollView>
       <View style={styles.page}>
 
-        {/* <Image source={require("../../../../assets/images/icon-art.png")} style={styles.image} /> */}
+        <Image source={require("../../../assets/logo-easy-route.png")} style={styles.image} />
 
         <View>
           <Text style={styles.title}>🔑 Acesse sua conta</Text>
           <Text style={styles.text}>
-           
+            Continue sua jornada rumo a um transporte escolar mais eficiente com o Easy Route.
           </Text>
         </View>
 
-        <SignInForm/>
+        <SignInForm />
 
         <View style={{ gap: 20 }}>
 

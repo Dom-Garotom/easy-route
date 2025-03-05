@@ -10,16 +10,17 @@ export default function SignUp() {
     <ScrollView>
       <View style={styles.page}>
 
-        {/* <Image source={require("../../../../assets/images/icon-art.png")} style={styles.image} /> */}
+        <Image source={require("../../../assets/logo-easy-route.png")} style={styles.image} />
+
 
         <View>
           <Text style={styles.title}>🌟 Crie sua conta</Text>
           <Text style={styles.text}>
-            
+            Cadastre-se e comece a otimizar os trajetos de maneira inteligente e prática.
           </Text>
         </View>
 
-        <SignUpForm/>
+        <SignUpForm />
 
         <View style={{ gap: 20 }}>
 
