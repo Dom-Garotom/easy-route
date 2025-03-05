@@ -9,10 +9,11 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 
 export default function StudentsList() {
   const api = false;
+
   return (
     <View style={s.studentsList_container}>
       <View style={{ alignItems: 'center', justifyContent: 'center', marginVertical: 20 }}>
-        <ShortButton path={'/driver' as '/driver/index'}
+        <ShortButton path={'/(driver)/driver'}
           left={0}
         >
           <IconArrowLeft color={colors.white} />

@@ -39,7 +39,7 @@ export default function Driver() {
               <Button styles={s.button} text='start' />
             </View>
 
-            <TouchableOpacity style={s.driverOptions_container} onPress={() => router.push('/studantsList/' as '/studantsList/index')}>
+            <TouchableOpacity style={s.driverOptions_container} onPress={() => router.push('/(driver)/studantsList')}>
               <IconUsers color={colors.title} />
               <Text>Estudantes</Text>
             </TouchableOpacity>
