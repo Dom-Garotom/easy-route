@@ -1,12 +1,29 @@
-import ApiRoutesMocks from "@/mocks/routerItem";
-import { router, useLocalSearchParams } from "expo-router";
-import React from "react";
+import { getRoadMap } from "@/models/getRoadMap";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Polyline } from "react-native-maps";
 
-export default function MapScren () {
-  const { id } = useLocalSearchParams()
-  const currentRoute = ApiRoutesMocks.find(item => item.id === id);
+export default function MapScren() {
+  const [routeCoords, setRouteCoords] = useState<getRoadMap[]>([]);
+  const origin = { latitude: -6.145875, longitude: -38.205352 }; 
+  const destination = { latitude: -6.112317, longitude: -38.31109 }; 
+
+  useEffect(() => {
+    const fetchRoadMaps = async () => {
+      const response = await getRoadMap(origin , destination)
+
+      if (response && response.length > 0){
+        setRouteCoords(response)
+        return;
+      }
+
+      alert('Não foi possivel achar a sua rota')
+      return;
+    }
+
+    fetchRoadMaps()
+  }, [destination , origin]);
+
 
 
   return (
@@ -14,32 +31,23 @@ export default function MapScren () {
       <MapView
         style={s.map}
         initialRegion={{
-          latitude: -6.112317, // Latitude inicial (São Paulo como exemplo)
-          longitude: -38.31109,// Longitude inicial
-          latitudeDelta: 0.005,  // Maior zoom
-          longitudeDelta: 0.005, // Maior zoom
+          latitude: -6.112317, 
+          longitude: -38.31109,
+          latitudeDelta: 0.005, 
+          longitudeDelta: 0.005, 
         }}
       >
-        {/* Exemplo de marcador */}
-        <Marker
-          coordinate={{
-            latitude: -6.145875,
-            longitude: -38.205352,
+        <Marker coordinate={origin} title="Origem" />
+        <Marker coordinate={destination} title="Destino" />
 
-          }}
-          title="Localização"
-          description="Estou aqui!"
-        />
+        {routeCoords.length > 0 && (
+          <Polyline
+            coordinates={routeCoords}
+            strokeWidth={4}
+            strokeColor="blue"
+          />
+        )}
 
-        <Marker
-          coordinate={{
-            latitude:-6.112317,
-            longitude: -38.31109,
-
-          }}
-          title="Localização"
-          description="Estou aqui!"
-        />
       </MapView>
     </View>
   );
