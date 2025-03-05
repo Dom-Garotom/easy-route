@@ -1,44 +1,64 @@
+import { busStops } from "@/mocks/stopBust";
 import { getRoadMap } from "@/models/getRoadMap";
-import React, { useEffect, useState } from "react";
+import { IconBusStop } from "@tabler/icons-react-native";
+import React, { useEffect, useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import MapView, { Marker, Polyline } from "react-native-maps";
 
 export default function MapScren() {
   const [routeCoords, setRouteCoords] = useState<getRoadMap[]>([]);
-  const origin = { latitude: -6.145875, longitude: -38.205352 }; 
-  const destination = { latitude: -6.112317, longitude: -38.31109 }; 
+  const [showBusStops, setShowBusStops] = useState(true);
+  const origin = useMemo(() => ({ latitude: -6.145875, longitude: -38.205352 }), []);
+  const destination = useMemo(() => ({ latitude: -6.112317, longitude: -38.31109 }), []);
 
   useEffect(() => {
     const fetchRoadMaps = async () => {
-      const response = await getRoadMap(origin , destination)
+      const response = await getRoadMap(origin, destination);
 
-      if (response && response.length > 0){
-        setRouteCoords(response)
+      if (response && response.length > 0) {
+        setRouteCoords(response);
         return;
       }
 
-      alert('Não foi possivel achar a sua rota')
+      alert('Não foi possivel achar a sua rota');
       return;
+    };
+
+    fetchRoadMaps();
+  }, [destination, origin]);
+
+  const handleRegionChange = (newRegion: any) => {
+    if (newRegion.latitudeDelta > 0.04) {
+      setShowBusStops(false);
+    } else {
+      setShowBusStops(true);
     }
-
-    fetchRoadMaps()
-  }, [destination , origin]);
-
-
+  };
 
   return (
     <View style={s.container}>
       <MapView
         style={s.map}
         initialRegion={{
-          latitude: -6.112317, 
+          latitude: -6.112317,
           longitude: -38.31109,
-          latitudeDelta: 0.005, 
-          longitudeDelta: 0.005, 
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
         }}
+        onRegionChangeComplete={handleRegionChange}
       >
         <Marker coordinate={origin} title="Origem" />
         <Marker coordinate={destination} title="Destino" />
+
+        {showBusStops && busStops.map((stop, index) => (
+          <Marker
+            key={index}
+            coordinate={{ latitude: stop.latitude, longitude: stop.longitude }}
+            title={stop.name}
+          >
+            <IconBusStop size={40} color="blue" />
+          </Marker>
+        ))}
 
         {routeCoords.length > 0 && (
           <Polyline
