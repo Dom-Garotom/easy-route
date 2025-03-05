@@ -26,7 +26,7 @@ export default function YourRouteAction({ hasGoing = true, time, title }: YourRo
             <TouchableOpacity activeOpacity={0.6} onPress={() => setIsActive(!isActive)} style={s.yourRouteAction_container}>
                 <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
                     {hasGoing ?
-                        (<IconArrowBarRight color={colors.green} size={28} />)
+                        (<IconArrowBarRight color={colors.greenSecondary} size={28} />)
                         :
                         (<IconArrowBarLeft color={colors.danger} size={28} />)
                     }
@@ -41,8 +41,8 @@ export default function YourRouteAction({ hasGoing = true, time, title }: YourRo
                 <EasyRouteModal.Container hasVisible={updateState} >
                     <EasyRouteModal.Title title={title} />
                     <EasyRouteModal.Text text={'Por favor selecione a sua situação atual sobre a rota'} />
-                    <Button text='Já estou no ônibus' />
-                    <Button text='Eu não volto mais' styles={{backgroundColor: "#FA7072"}}/>
+                    <Button text='Já estou no ônibus' styles={{backgroundColor: colors.greenSecondary}}/>
+                    <Button text='Eu não volto mais' styles={{backgroundColor:colors.danger}}/>
                 </EasyRouteModal.Container>
             }
         </>

@@ -13,7 +13,7 @@ interface  NotificationItemProps {
 export default function NotificationItem( { description , time , title} : NotificationItemProps ) {
     return (
         <View style={s.notificationItem_cotainer}>
-            <IconBusStop size={28} color={colors.green} />
+            <IconBusStop size={28} color={colors.greenSecondary} />
             <View>
                 <Text style={s.notificationItem_title}>{title}</Text>
                 <Text style={s.notificationItem_text}>{description}</Text>

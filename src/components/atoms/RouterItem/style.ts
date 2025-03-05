@@ -40,7 +40,7 @@ export const s = StyleSheet.create({
   },
 
   routeItem_time: {
-    color: colors.green,
+    color: colors.greenSecondary,
     fontWeight: '500',
     fontSize: 16,
   },

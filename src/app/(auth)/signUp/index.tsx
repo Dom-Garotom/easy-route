@@ -22,7 +22,7 @@ export default function SignUp() {
 
         <SignUpForm />
 
-        <View style={{ gap: 20 }}>
+        <View style={{ gap: 40 }}>
 
           <AuthSwitch
             route={'/(auth)/signIn'}

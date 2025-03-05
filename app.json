@@ -4,7 +4,7 @@
     "slug": "rota-facil",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon/icons-easy-route.png",
+    "icon": "./src/assets/icon/icon-easy-route.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,

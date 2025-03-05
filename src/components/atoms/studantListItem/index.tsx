@@ -19,7 +19,7 @@ export default function StudantListItem({ istitute, name, onTheBus }: StudantLis
                 <Text style={s.studentsListItem_name}>{name}</Text>
                 <Text style={s.studentsListItem_institute}>Instituiçãos - {truncateText(istitute , 35)}</Text>
             </View>
-            <IconBusStop color={onTheBus ? colors.green : colors.danger} size={28} />
+            <IconBusStop color={onTheBus ? colors.greenSecondary : colors.danger} size={28} />
         </View>
     )
 }

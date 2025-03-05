@@ -21,18 +21,11 @@ export default function SignIn() {
 
         <SignInForm />
 
-        <View style={{ gap: 20 }}>
-
+        <View style={{ gap: 40 }}>
           <AuthSwitch
             route={'/(auth)/signUp'}
             title='Novo por aqui?'
             subTitle='Faça parte da nossa comunidade!'
-          />
-
-          <AuthSwitch
-            route={'/(auth)/signUp'}
-            title='Esqueceu a senha?'
-            subTitle='Recupere  rapidamente'
           />
 
           <Stage

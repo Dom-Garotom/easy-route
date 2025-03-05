@@ -78,9 +78,9 @@ export default function RouteDatails() {
                     <EasyRouteModal.Title title={currentRoute?.name!} />
                     <EasyRouteModal.Text text={'Por favor selecione como você pretende se inscrever nessa rota '} />
                     <View style={{ gap: 4 }}>
-                        <Button text='Eu vou e volto' />
-                        <Button text='Eu vou mas não volto' styles={{ backgroundColor: colors.greenDark }} />
-                        <Button text='Apenas volto' styles={{ backgroundColor: "#45525F" }} />
+                        <Button text='Eu vou e volto'  styles={{ backgroundColor: colors.greenSecondary }} />
+                        <Button text='Eu vou mas não volto' styles={{ backgroundColor: colors.green }} />
+                        <Button text='Apenas volto' styles={{ backgroundColor: "#f56565" }} />
                     </View>
                 </EasyRouteModal.Container>
             }
