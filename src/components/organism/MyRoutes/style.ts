@@ -10,7 +10,9 @@ export const s = StyleSheet.create({
   },
 
   flatList: {
-    padding: 24,
+    padding: 20,
+    width:"100%",
+    height:"100%"
   },
 
 })

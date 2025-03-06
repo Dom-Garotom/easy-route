@@ -39,6 +39,12 @@ export default function index() {
         onPress={() => router.navigate('/(driver)/driver')}
       />
 
+<ButtonDefault
+        text='Driver'
+        color="#071E2C"
+        onPress={() => router.navigate('/(studant)/home')}
+      />
+
       <Stage
         numbStage={3}
         stage={1}

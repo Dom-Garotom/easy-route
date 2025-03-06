@@ -11,3 +11,12 @@ export type Students = {
     email: string,
     phone: string
 }
+
+export type StudentRoute = {
+    student: number;
+    route: number;
+    onbus: boolean;
+    going: boolean;
+    back: boolean;
+  };
+  

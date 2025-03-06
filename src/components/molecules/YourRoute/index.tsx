@@ -6,11 +6,13 @@ interface YourRouteProps {
   route_id: string 
   title: string
   period: string
-  going ?: string
-  back ?: string
+  going : boolean
+  back : boolean
+  timeGoing : string
+  timeBack : string
 }
 
-export default function YourRoute({ going , back , route_id , period, title }: YourRouteProps) {
+export default function YourRoute({ going , back , route_id , period, title , timeBack , timeGoing }: YourRouteProps) {
   return (
     <View style={s.yourRoute_container}>
       <View>
@@ -22,16 +24,16 @@ export default function YourRoute({ going , back , route_id , period, title }: Y
           <YourRouteAction  
           route_id={route_id}
             hasGoing
-            title={title}
-            time={going}
+            title={"Ida"}
+            time={timeGoing}
           />
         }
         {back &&
           <YourRouteAction  
             route_id={route_id}
             hasGoing={false}
-            title={title}
-            time={back}
+            title={"Volta"}
+            time={timeBack}
           />
         }
       </View>

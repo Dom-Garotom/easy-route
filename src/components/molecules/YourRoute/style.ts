@@ -12,6 +12,7 @@ export const s = StyleSheet.create({
     },
   
     yourRoute_title: {
+      width:"70%",
       color: colors.title,
       fontWeight: '600',
       fontSize: 16,

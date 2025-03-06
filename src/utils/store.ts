@@ -14,7 +14,7 @@ export const storeUseData = async (data: StudentsAPi) => {
 };
 
 
-export const getUserData = async (): Promise<any | undefined> => {
+export const getUserData = async (): Promise<StudentsAPi | undefined> => {
     try {
         const data = await SecureStore.getItemAsync('user_data10');
         if (data) {
