@@ -12,11 +12,14 @@ import { useEffect, useState } from 'react'
 import { EasyRouteModal } from '@/components/organism/EasyRouteModal'
 import { getRouteDetails } from '@/models/getRoutesDetails'
 import { Route } from '@/types/routerInfo'
+import { registerInRoute } from '@/models/registerInRoute'
+import { getUserData } from '@/utils/store'
 
 export default function RouteDatails() {
     const { id } = useLocalSearchParams()
     const [routes, setRoutes] = useState<Route>();
     const [isActive, setIsActive] = useState(false);
+    const [user, setUser] = useState<any>()
 
     const updateState = (state: boolean) => {
         setIsActive(state)
@@ -34,6 +37,16 @@ export default function RouteDatails() {
             alert('Não foi possivel achar a sua rota')
             return;
         }
+
+        const getUser = async () => {
+            const data = await getUserData();
+
+            if (data) {
+                setUser(data);
+            }
+        };
+
+        getUser();
 
         fetchAllRoutes()
     }, [id]);
@@ -94,9 +107,9 @@ export default function RouteDatails() {
                     <EasyRouteModal.Title title={routes?.name!} />
                     <EasyRouteModal.Text text={'Por favor selecione como você pretende se inscrever nessa rota '} />
                     <View style={{ gap: 4 }}>
-                        <Button text='Eu vou e volto' styles={{ backgroundColor: colors.greenSecondary }} />
-                        <Button text='Eu vou mas não volto' styles={{ backgroundColor: colors.green }} />
-                        <Button text='Apenas volto' styles={{ backgroundColor: "#f56565" }} />
+                        <Button text='Eu vou e volto' onPress={() => registerInRoute(user.id, routes?.id.toString()!, true, true)} styles={{ backgroundColor: colors.greenSecondary }} />
+                        <Button text='Eu vou mas não volto' onPress={() => registerInRoute(user.id, routes?.id.toString()!, true, false)} styles={{ backgroundColor: colors.green }} />
+                        <Button text='Apenas volto' onPress={() => registerInRoute(user.id, routes?.id.toString()!, false, true)} styles={{ backgroundColor: "#f56565" }} />
                     </View>
                 </EasyRouteModal.Container>
             }
