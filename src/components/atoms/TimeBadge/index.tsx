@@ -6,7 +6,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function TimeBadge({ text }: { text: string }) {
     return (
         <View style={s.container}>
-            <IconClock color={colors.green} />
+            <IconClock color={colors.greenSecondary} />
             <Text>{text}</Text>
         </View>
     )

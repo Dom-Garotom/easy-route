@@ -7,20 +7,37 @@ import { IconArrowLeft, IconMapPin } from '@tabler/icons-react-native'
 import { useLocalSearchParams } from 'expo-router'
 import { ImageBackground, SafeAreaView, ScrollView, Text, View } from 'react-native'
 import { s } from './style'
-import ApiRoutesMocks from '@/mocks/routerItem'
 import ShortButton from '@/components/atoms/ShortButton/indext'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { EasyRouteModal } from '@/components/organism/EasyRouteModal'
+import { getRouteDetails } from '@/models/getRoutesDetails'
+import { Route } from '@/types/routerInfo'
 
 export default function RouteDatails() {
     const { id } = useLocalSearchParams()
-    const currentRoute = ApiRoutesMocks.find(item => item.id === id);
+    const [routes, setRoutes] = useState<Route>();
     const [isActive, setIsActive] = useState(false);
 
     const updateState = (state: boolean) => {
         setIsActive(state)
     }
 
+
+    useEffect(() => {
+        const fetchAllRoutes = async () => {
+            const response = await getRouteDetails(id.toString())
+
+            if (response) {
+                setRoutes(response)
+                return;
+            }
+
+            alert('Não foi possivel achar a sua rota')
+            return;
+        }
+
+        fetchAllRoutes()
+    }, [id]);
 
     return (
         <>
@@ -34,7 +51,7 @@ export default function RouteDatails() {
                             >
                                 <IconArrowLeft color={colors.white} />
                             </ShortButton>
-                            <Text style={{ fontSize: 20, color: colors.white, fontWeight: '700' }}>{currentRoute?.name}</Text>
+                            <Text style={{ fontSize: 20, color: colors.white, fontWeight: '700' }}>Detalhes da rota</Text>
                             <ShortButton
                                 path={`/mapRoute/${id}`}
                                 right={20}
@@ -48,23 +65,23 @@ export default function RouteDatails() {
 
                 <View style={{ flex: 1 }}>
                     <ScrollView showsVerticalScrollIndicator={false} style={s.content}>
-                        <Text style={s.content_title}>{currentRoute?.name}</Text>
-                        <Text style={s.content_text}>{currentRoute?.description}</Text>
+                        <Text style={s.content_title}>{routes?.name}</Text>
+                        <Text style={s.content_text}>{routes?.description}</Text>
                         <View>
                             <Bar />
                             <Text style={s.content_titleSoft}>Informações do ônibus</Text>
-                            <Text style={s.content_text}>motorista : {currentRoute?.bus.driver}</Text>
-                            <Text style={s.content_text}>capacidade : {currentRoute?.bus.capacityStudents}</Text>
-                            <Text style={s.content_text}>modelo : {currentRoute?.bus.model}</Text>
-                            <Text style={s.content_text}>Placa : {currentRoute?.bus.plate}</Text>
+                            <Text style={s.content_text}>motorista : {routes?.bus[0].driver}</Text>
+                            <Text style={s.content_text}>capacidade : {routes?.bus[0].capacityStudents}</Text>
+                            <Text style={s.content_text}>modelo : {routes?.bus[0].model}</Text>
+                            <Text style={s.content_text}>Placa : {routes?.bus[0].plate}</Text>
                         </View>
 
                         <View >
                             <Bar />
                             <Text style={s.content_titleSoft}>Horários de saída e de volta</Text>
-                            <TimeBadge text={currentRoute?.going!} />
-                            <TimeBadge text={currentRoute?.back!} />
-                            <ListTitle title='Número de alunos' studentsNumber={currentRoute?.confirmedStudants!} />
+                            <TimeBadge text={routes?.timeGoing!} />
+                            <TimeBadge text={routes?.timeBack!} />
+                            <ListTitle title='Número de alunos' studentsNumber={routes?.confirmedStudents!} />
                         </View>
 
                     </ScrollView>
@@ -75,10 +92,10 @@ export default function RouteDatails() {
             </SafeAreaView>
             {isActive &&
                 <EasyRouteModal.Container hasVisible={updateState} >
-                    <EasyRouteModal.Title title={currentRoute?.name!} />
+                    <EasyRouteModal.Title title={routes?.name!} />
                     <EasyRouteModal.Text text={'Por favor selecione como você pretende se inscrever nessa rota '} />
                     <View style={{ gap: 4 }}>
-                        <Button text='Eu vou e volto'  styles={{ backgroundColor: colors.greenSecondary }} />
+                        <Button text='Eu vou e volto' styles={{ backgroundColor: colors.greenSecondary }} />
                         <Button text='Eu vou mas não volto' styles={{ backgroundColor: colors.green }} />
                         <Button text='Apenas volto' styles={{ backgroundColor: "#f56565" }} />
                     </View>
