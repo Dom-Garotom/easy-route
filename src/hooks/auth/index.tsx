@@ -2,6 +2,7 @@ import { useState } from "react"
 import { router } from "expo-router";
 import { EasyRouteApi } from "@/services/configApi";
 import { storeUseData } from "@/utils/store";
+import { Students, StudentsAPi } from "@/types/student";
 
 
 export default function useAuth() {
@@ -19,7 +20,6 @@ export default function useAuth() {
             
             setLoading(true);
             const response = await EasyRouteApi.post("students/", postData)
-            
             
             if (response) {
                 await storeUseData(response.data)
@@ -41,7 +41,7 @@ export default function useAuth() {
         }
     }
 
-    const signIn = async (data: any) => {
+    const signIn = async (data: Students) => {
         try {
             setLoading(true);
             const response = await EasyRouteApi.get('students/list/')
@@ -51,9 +51,16 @@ export default function useAuth() {
                 throw new Error("Requisição falha")
             }
 
-            if (response.data.gmail == data.gmail ||response.data.name == data.name){
-                router.push("/(studant)/home");
+            const studentsList : StudentsAPi[] = response.data
+            const currentStudent = studentsList.find( item => item.gmail === data.email || item.name === data.name)
+
+            if(!currentStudent){
+                throw new Error()
             }
+
+            router.push("/(studant)/home");
+            storeUseData(currentStudent)
+
 
         } catch (err: any) {
             setLoading(false);

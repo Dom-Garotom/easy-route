@@ -1,9 +1,10 @@
+import { Students, StudentsAPi } from "@/types/student";
 import * as SecureStore from "expo-secure-store"
 
-export const storeUseData = async (data: string) => {
+export const storeUseData = async (data: StudentsAPi) => {
     try {
         await SecureStore.setItem(
-            'user_data', 
+            'user_data10', 
             JSON.stringify(data)
         );
         console.log('Dados armazenado com segurança.');
@@ -15,13 +16,13 @@ export const storeUseData = async (data: string) => {
 
 export const getUserData = async (): Promise<any | undefined> => {
     try {
-        const data = await SecureStore.getItemAsync('user_data');
+        const data = await SecureStore.getItemAsync('user_data10');
         if (data) {
             console.log('Dados recuperados com sucesso:', data);
             return JSON.parse(data); 
         }
         console.log('Nenhum dado encontrado.');
-        return undefined;
+        return undefined;   
     } catch (error) {
         console.error('Erro ao recuperar os dados:', error);
         return undefined;

@@ -32,11 +32,6 @@ export default function index() {
         onPress={() => router.navigate('/(auth)/signIn')}
       />
 
-      <ButtonDefault
-        text='Home'
-        color="#071E2C"
-        onPress={() => router.navigate('/(studant)/home')}
-      />
 
       <ButtonDefault
         text='Driver'

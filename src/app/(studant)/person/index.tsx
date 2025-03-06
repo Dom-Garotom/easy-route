@@ -18,6 +18,7 @@ export default function Person() {
 
       if (data) {
         setUser(data);
+        console.log(data)
       }
 
     };

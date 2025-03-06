@@ -1,3 +1,4 @@
+import colors from "@/styles/colors";
 import { StyleSheet } from "react-native";
 
 export const s = StyleSheet.create({
@@ -22,6 +23,7 @@ export const s = StyleSheet.create({
     name: {
       fontSize: 18,
       fontWeight: "bold",
+      color: colors.title
     },
     email: {
       fontSize: 14,
