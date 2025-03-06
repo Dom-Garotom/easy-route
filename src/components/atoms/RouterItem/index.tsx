@@ -5,7 +5,7 @@ import { router } from 'expo-router'
 import { truncateText } from '@/utils/truncate'
 
 interface RouterItemProps {
-    id: number | string,
+    id: number ,
     title: string,
     period: string,
     description: string,
