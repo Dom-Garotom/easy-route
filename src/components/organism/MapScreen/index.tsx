@@ -7,7 +7,7 @@ import MapView, { Marker, Polyline } from "react-native-maps";
 
 export default function MapScren() {
   const [routeCoords, setRouteCoords] = useState<getRoadMap[]>([]);
-  const [showBusStops, setShowBusStops] = useState(true);
+  const [showBusStops, setShowBusStops] = useState(false);
   const origin = useMemo(() => ({ latitude: -6.145875, longitude: -38.205352 }), []);
   const destination = useMemo(() => ({ latitude: -6.112317, longitude: -38.31109 }), []);
 
@@ -28,7 +28,7 @@ export default function MapScren() {
   }, [destination, origin]);
 
   const handleRegionChange = (newRegion: any) => {
-    if (newRegion.latitudeDelta > 0.04) {
+    if (newRegion.latitudeDelta > 0.06) {
       setShowBusStops(false);
     } else {
       setShowBusStops(true);

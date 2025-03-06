@@ -20,6 +20,7 @@ export const s = StyleSheet.create({
         color: colors.title,
         fontWeight: '600',
         fontSize: 20,
+        width: "70%"
     },
 
     roadMapInfo_timer: {

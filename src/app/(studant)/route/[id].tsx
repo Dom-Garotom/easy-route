@@ -22,7 +22,6 @@ export default function RouteDatails() {
         setIsActive(state)
     }
 
-
     useEffect(() => {
         const fetchAllRoutes = async () => {
             const response = await getRouteDetails(id.toString())

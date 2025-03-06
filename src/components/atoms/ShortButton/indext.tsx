@@ -17,7 +17,7 @@ interface ShortButtonProps {
 
 export default function ShortButton({ path, children, bottom, left, right, top, onClick }: ShortButtonProps) {
     const handleClick = () => {
-        path && router.push(path);
+        path && router.navigate(path);
         onClick?.()
     }
     return (

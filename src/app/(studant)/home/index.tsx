@@ -17,7 +17,7 @@ export default function Home() {
       <MapScren />
       <NavigationMenu />
       <ShortButton
-        path={'/person/index'}
+        path={'/(studant)/person'}
         top={20}
         right={10}
       >
@@ -37,6 +37,9 @@ export default function Home() {
           }
           {categories === 'Minhas rotas' &&
             <MyRoutes/>
+          }
+          {categories === 'Rotas da semana' &&
+            <DailyRoutes/>
           }
         </View>
       </View>

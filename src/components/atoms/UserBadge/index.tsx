@@ -19,6 +19,7 @@ export const UserBadge = ({ studentsNumber }: UserBadgeProps) => {
 const s = StyleSheet.create({
     userBadge_container: {
         width: 70,
+        height:40,
         flexDirection: 'row',
         paddingHorizontal: 8,
         paddingVertical: 6,

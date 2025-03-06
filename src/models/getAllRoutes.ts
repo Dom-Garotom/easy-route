@@ -15,7 +15,6 @@ export const getAllRoutes = async (): Promise<Route[] | undefined> => {
         )
 
         if (allRoutesResponse) {
-            console.log(allRoutesResponse)
             return allRoutesResponse
         }
 

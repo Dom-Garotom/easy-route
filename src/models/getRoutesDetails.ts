@@ -14,7 +14,6 @@ export const getRouteDetails = async (id : string): Promise<Route | undefined> =
         )
 
         if (routeDetailsResponse) {
-            console.log(routeDetailsResponse)
             return routeDetailsResponse
         }
 

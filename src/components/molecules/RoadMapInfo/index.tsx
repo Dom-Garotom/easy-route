@@ -21,12 +21,12 @@ export default function RoadMapInfo({ back, going, studentsNumber, title }: Road
             </View>
 
             <View style={s.roadMapInfo_timer}>
-                <IconClock color={colors.green} />
+                <IconClock color={colors.greenSecondary} />
                 <Text style={s.roadMapInfo_text}>Saída : {going}</Text>
             </View>
 
             <View style={s.roadMapInfo_timer}>
-                <IconClock color={colors.green} />
+                <IconClock color={colors.greenSecondary} />
                 <Text style={s.roadMapInfo_text}>Volta : {back}</Text>
             </View>
         </View>
