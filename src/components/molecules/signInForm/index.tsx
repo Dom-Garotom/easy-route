@@ -13,7 +13,7 @@ export default function SignInForm() {
         resolver: zodResolver(signUpForms)
     });
 
-    const { serverMessageError , signIn, serverLoading } = useAuth();
+    const { serverMessageError, signIn, serverLoading } = useAuth();
 
     const onSubmit = (data: any) => {
         console.log("sbmit")
@@ -27,7 +27,24 @@ export default function SignInForm() {
                 <View>
                     <Text style={{ color: colors.danger }}>{`${serverMessageError}`}</Text>
                 </View>
-            } 
+            }
+
+            <Controller
+                control={control}
+                name='name'
+                render={({ field: { onBlur, onChange, value } }) => (
+                    <InputDefault
+                        label={'Name'}
+                        placeholder='Seu melhor email'
+                        onChangeText={onChange}
+                        onBlur={onBlur}
+                        value={value}
+                        messageError={errors.email?.message}
+                        keyboardType='email-address'
+                    />
+                )}
+
+            />
 
             <Controller
                 control={control}
@@ -76,6 +93,7 @@ export default function SignInForm() {
 const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*.])[A-Za-z\d@#$%^&*.]+$/;
 
 const signUpForms = z.object({
+    name: z.string().min( 4 ,{ message: "Seu nome de ter no minímo 4 letras" }),
     email: z.string().email({ message: "formato inválido de email" }),
     senha: z.string().min(8, { message: "A senha deve ter no mínimo 8 caracteres " })
         .regex(regex, { message: "A sua senha deve conter pelo menos uma letra maiúsucula , uma minúscula , um número e um dos [@#$%^&*.]" }),

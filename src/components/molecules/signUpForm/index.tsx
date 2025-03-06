@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from 'zod'
+import {  z } from 'zod'
 import colors from '@/styles/colors'
 import InputDefault from '@/components/atoms/inputDefault'
 import ButtonDefault from '@/components/atoms/ButtonDefault'
@@ -61,6 +61,24 @@ export default function SignUpForm() {
 
             />
 
+
+            <Controller
+                control={control}
+                name='numero'
+                render={({ field: { onBlur, onChange, value } }) => (
+                    <InputDefault
+                        label={'Número'}
+                        placeholder='Seu melhor número'
+                        onChangeText={onChange}
+                        onBlur={onBlur}
+                        value={value}
+                        maxLength={11}
+                        messageError={errors.numero?.message}
+                    />
+                )}
+
+            />
+
             <Controller
                 control={control}
                 name='senha'
@@ -93,7 +111,7 @@ const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*.])[A-Za-z\d@#$%^&*.]
 const signUpForms = z.object({
     name: z.string().min(4, { message: "o nome deve ter no mínimo quatro letras" }),
     email: z.string().email({ message: "formato inválido de email" }),
+    numero: z.string().min(8).max(11, {message : "um número só pode ter no máximo 11 caracteres"}),
     senha: z.string().min(8, { message: "A senha deve ter no mínimo 8 caracteres " })
         .regex(regex, { message: "A sua senha deve conter pelo menos uma letra maiúsucula , uma minúscula , um número e um dos [@#$%^&*.]" }),
 })
- 
