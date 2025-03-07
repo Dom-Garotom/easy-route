@@ -8,20 +8,19 @@ import colors from '@/styles/colors'
 import { IconBuilding, IconClock, IconRoute, IconUsers } from '@tabler/icons-react-native'
 import { router } from 'expo-router'
 import { useState } from 'react'
-import {Text, TouchableOpacity, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { s } from './style'
 
 export default function Driver() {
   const [isActive, setIsActive] = useState(false);
+  const [statusRoute, setStatusRoute] = useState(true)
 
   const updateState = (state: boolean) => {
     setIsActive(state)
   }
 
   const options = ['if', 'uer', 'ufersa']
-
-
 
   return (
     <>
@@ -36,7 +35,7 @@ export default function Driver() {
             </TouchableOpacity>
 
             <View style={s.teste}>
-              <Button styles={s.button} text='start' />
+              <Button styles={statusRoute ? s.button : s.buttonFinish} text={statusRoute ? "começar" : 'finalizar'} onPress={() => setStatusRoute(prev => !prev)} />
             </View>
 
             <TouchableOpacity style={s.driverOptions_container} onPress={() => router.push('/(driver)/studantsList')}>
@@ -78,8 +77,8 @@ export default function Driver() {
           <EasyRouteModal.Title title={'Lista de instituições'} />
           <EasyRouteModal.Text text={'Confirme aqui a entrega de todos os alunos das intituições da sua rota'} />
           <View style={{ gap: 4 }}>
-            <SelectInstituteInput options={options} onSelect={alert} placeholder='Selecione as instituição' />
-            <Button text='Alunos entregues' styles={{ backgroundColor: "#45525F" }} />
+            <SelectInstituteInput options={options} placeholder='Selecione as instituição' />
+            <Button text='Alunos entregues' styles={{ backgroundColor: "#45525F" }} onPress={() => setIsActive(false)} />
           </View>
         </EasyRouteModal.Container>
       }

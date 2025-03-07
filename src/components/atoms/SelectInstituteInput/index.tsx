@@ -7,7 +7,7 @@ import colors from "@/styles/colors";
 interface SelectInstituteInputProps {
   options: string[]
   placeholder: string,
-  onSelect: (value: string) => void
+  onSelect ?: (value: string) => void
 }
 export const SelectInstituteInput = ({ onSelect, options, placeholder }: SelectInstituteInputProps) => {
   const [text, setText] = useState("Selecione uma instituição");

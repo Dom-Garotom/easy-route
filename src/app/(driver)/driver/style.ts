@@ -52,6 +52,12 @@ export const s = StyleSheet.create({
       width: 170,
       borderRadius: 50
     },
+
+    buttonFinish : {
+      width: 170,
+      borderRadius: 50,
+      backgroundColor: colors.danger
+    },
   
     teste: {
       width: "100%",
