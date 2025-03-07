@@ -5,6 +5,8 @@ import { s } from './style'
 import { EasyRouteModal } from '@/components/organism/EasyRouteModal'
 import { useState } from 'react'
 import Button from '../Button'
+import { getUserData } from '@/utils/store'
+import { EasyRouteApi } from '@/services/configApi'
 
 interface YourRouteActionProps {
     route_id: string
@@ -13,11 +15,41 @@ interface YourRouteActionProps {
     hasGoing: boolean
 }
 
-export default function YourRouteAction({ hasGoing = true, time, title }: YourRouteActionProps) {
+export default function YourRouteAction({ hasGoing, time, title, route_id }: YourRouteActionProps) {
     const [isActive, setIsActive] = useState(false);
 
-    const updateState = ( state : boolean) => {
+    const updateState = (state: boolean) => {
         setIsActive(state)
+    }
+
+    const handleCLick = async (onBus: boolean, comeBack: boolean) => {
+        try {
+            const userData = await getUserData()
+            if (!useState) {
+                alert("Não foi possivel realizar a interação")
+                return
+            }
+
+            let actionData;
+
+            actionData = {
+                "onbus": onBus,
+                "going": comeBack,
+                "back": comeBack
+            }
+
+            const response = await EasyRouteApi.patch(`students/list/${userData?.id}/routes/${route_id}/update/`, actionData)
+
+            if (!response.data) {
+                throw new Error()
+            }
+
+
+        } catch (error) {
+            console.log("Error \n\n\ ")
+            console.log(error)
+            return
+        }
     }
 
 
@@ -41,8 +73,8 @@ export default function YourRouteAction({ hasGoing = true, time, title }: YourRo
                 <EasyRouteModal.Container hasVisible={updateState} >
                     <EasyRouteModal.Title title={title} />
                     <EasyRouteModal.Text text={'Por favor selecione a sua situação atual sobre a rota'} />
-                    <Button text='Já estou no ônibus' styles={{backgroundColor: colors.greenSecondary}}/>
-                    <Button text='Eu não volto mais' styles={{backgroundColor:colors.danger}}/>
+                    <Button text='Já estou no ônibus' onPress={() => handleCLick(true, true)} styles={{ backgroundColor: colors.greenSecondary }} />
+                    <Button text='Eu não volto mais' onPress={() => handleCLick(false, false)} styles={{ backgroundColor: colors.danger }} />
                 </EasyRouteModal.Container>
             }
         </>
