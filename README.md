@@ -1,4 +1,4 @@
-# RotaFácil - Sistema de Controle de Vagas para Ônibus Estudantis
+# RotaFácil - Sistema de Controle de Vagas para Ônibus Estudantis ( Front-End  )
 
 ## Descrição do Projeto
 
